@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Prescription</title>
+    <style>
+    body {
+        background-image: url('https://media.istockphoto.com/id/1300036753/vi/anh/nền-tảng-chăm-sóc-sức-khỏe-kháng-sinh-giảm.jpg?s=612x612&w=0&k=20&c=yfTQ7fuDzh0vSMYrAhDq7F1OsgWxe8DsTnYUy0zWCFQ='); 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4; 
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333; / Màu chữ /
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+        width: calc(100% - 22px);
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    h2, h3 {
+        margin-top: 20px;
+        color: #333; / Màu chữ */
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+    </style>
+</head>
+<body>
+    <h1>View Prescription</h1>
+
+    <form method="get" action="{{ url_for('view_prescription') }}">
+        <label for="prescription_id">Enter Prescription ID:</label>
+        <input type="number" id="prescription_id" name="prescription_id" required>
+        <button type="submit">View Prescription</button>
+    </form>
+
+    {% if prescription_info %}
+        <div class="prescription-details">
+            <h2>Prescription Details</h2>
+            <p>Prescription ID: {{ prescription_info.prescription_id }}</p>
+            <p>Patient ID: {{ prescription_info.patient_id }}</p>
+            <p>Doctor ID: {{ prescription_info.doctor_id }}</p>
+
+            <h3>Prescription Detail</h3>
+            <ul>
+                {% for detail in prescription_info.details %}
+                    <li>Medication ID: {{ detail.medication_id }}, Dose: {{ detail.dose }}, Frequency: {{ detail.frequency }}, Single Dose: {{ detail.single_dose }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription App</title>
+</head>
+<style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/1300036753/vi/anh/nền-tảng-chăm-sóc-sức-khỏe-kháng-sinh-giảm.jpg?s=612x612&w=0&k=20&c=yfTQ7fuDzh0vSMYrAhDq7F1OsgWxe8DsTnYUy0zWCFQ='); 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        h1 {
+            text-align: center;
+            color: #ec3a3a;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #ff0000;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .flashes {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            
+        }
+
+        .flash {
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .success {
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+
+        .error {
+            background-color: #FF5733;
+            color: #ffffff;
+        }
+</style>
+<body>
+    <h1>Welcome to Prescription App</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+             <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <form>
+        <p>Choose an action:</p>
+        <ul>
+            <label><li><a href="Ke_don.html">Create Prescription</a></li></label>
+            <label><li><a href="xem.html">View Prescription</a></li></label>
+            <!-- Add more actions as needed -->
+        </ul>
+    </form>
+</body>
+</html>
