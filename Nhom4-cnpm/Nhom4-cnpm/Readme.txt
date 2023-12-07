@@ -16,4 +16,6 @@ Xác định kiến trúc: Xác định cách triển khai các module, các ph�
 3/ Phát triển
 Xây dựng back-end: Bắt đầu viết mã để triển khai các chức năng cần thiết, xây dựng cơ sở dữ liệu.
 4/ Triển khai sản phẩm
-Chạy sản phẩm kê đơn thuốc
+Chạy sản phẩm kê đơn thuốc:
+Cần có hai thư viện : pymssql và flask
+Chạy file app.py
